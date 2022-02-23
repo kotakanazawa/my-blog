@@ -25,7 +25,7 @@ export default function Post({ postData }) {
   return (
     <Layout>
       <Head>
-        <title>{postData.title}</title>
+        <title>{postData.title} | Kota Kanazawa</title>
       </Head>
 
       <article>
