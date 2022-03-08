@@ -1,9 +1,9 @@
-import Head from "next/head"
 import Layout, { siteTitle } from "../components/layout"
 import utilStyles from "../styles/utils.module.css"
 import { getSortedPostsData } from "../lib/posts"
 import Link from "next/link"
 import Date from "../components/date"
+import NextHeadSeo from "next-head-seo"
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData()
@@ -15,15 +15,27 @@ export async function getStaticProps() {
 }
 
 export default function Home({ allPostsData }) {
+  const pageUrl = `https://www.kota-kanazawa.com/`
+
   return (
     <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
+      <NextHeadSeo
+        title={siteTitle}
+        canonical={pageUrl}
+        description={"A portfolio by Kota Kanazawa"}
+        og={{
+          title: siteTitle,
+          image: "/images/profile.jpg",
+          type: 'article',
+          siteName: siteTitle,
+        }}
+        twitter={{
+          card: "summary_large_image",
+        }}
+      />
       <section className={utilStyles.headingMd}>
         <p>
-          夫&2児の父 / Software Engineer / Ruby, React, GraphQL, Next.js /
-          Hirakata.rb主催 / NBA / ボディビル
+          夫&2児の父、ソフトウェアエンジニアです。
         </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
