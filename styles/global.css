@@ -25,3 +25,12 @@ img {
   max-width: 100%;
   display: block;
 }
+
+ul, ol {
+  padding-left: 1.4em;
+}
+
+/* リストの2階層目以降はインデントを小さくする */
+li > ul, li > ol {
+  padding-left: 1.1em;
+}
